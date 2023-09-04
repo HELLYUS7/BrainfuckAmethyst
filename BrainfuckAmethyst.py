@@ -2,7 +2,6 @@ from Controllers.TerminalController import Terminal
 from Controllers.NetworkController import Network
 from rich import print
 from time import sleep 
-from emoji import emojize
 
 class OS:
     def __init__(self, ROMsize = 2048, RAMsize = 32) -> None:
