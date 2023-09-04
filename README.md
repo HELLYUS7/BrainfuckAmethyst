@@ -1,9 +1,4 @@
-Claro, aqui está um exemplo de um arquivo Markdown que você pode adicionar ao seu repositório para fornecer informações sobre a linguagem Brainfuck:
-
-````markdown
 # Linguagem Brainfuck
-
-![Brainfuck Logo](link_para_uma_imagem_se_você_tiver_uma.png)
 
 A linguagem **Brainfuck** é uma das mais simples e minimalistas linguagens de programação já criadas. Ela foi projetada para ser minimalista, tendo apenas oito comandos em seu conjunto de instruções. O Brainfuck é conhecido por sua simplicidade extrema e pela falta de recursos abstratos ou recursos de alto nível.
 
@@ -24,7 +19,8 @@ Aqui está um exemplo simples de um programa Brainfuck que imprime "Hello, World
 ```brainfuck
 ++++++++[>++++[>++>+++>+++>+<<<<-]>+>+>->>+[<]<-]>>.>---.+++++++..+++.>>.<-.<.+++.------.--------.>>+.>++.
 ```
-````
+
+```
 
 ## Uso Comum
 
@@ -40,3 +36,4 @@ Embora o Brainfuck não seja uma linguagem de programação prática para tarefa
 Se você tiver interesse em contribuir para o desenvolvimento da linguagem Brainfuck ou criar projetos relacionados, fique à vontade para se envolver na comunidade e explorar novas possibilidades criativas.
 
 Divirta-se explorando o mundo intrigante e desafiador do Brainfuck!
+```
