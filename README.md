@@ -20,8 +20,6 @@ Aqui está um exemplo simples de um programa Brainfuck que imprime "Hello, World
 ++++++++[>++++[>++>+++>+++>+<<<<-]>+>+>->>+[<]<-]>>.>---.+++++++..+++.>>.<-.<.+++.------.--------.>>+.>++.
 ```
 
-```
-
 ## Uso Comum
 
 Embora o Brainfuck não seja uma linguagem de programação prática para tarefas do mundo real, é frequentemente usado como um desafio e uma forma de aprender sobre o funcionamento interno de um computador. Programadores também usam Brainfuck para criar programas artísticos e enigmáticos.
@@ -36,4 +34,3 @@ Embora o Brainfuck não seja uma linguagem de programação prática para tarefa
 Se você tiver interesse em contribuir para o desenvolvimento da linguagem Brainfuck ou criar projetos relacionados, fique à vontade para se envolver na comunidade e explorar novas possibilidades criativas.
 
 Divirta-se explorando o mundo intrigante e desafiador do Brainfuck!
-```
