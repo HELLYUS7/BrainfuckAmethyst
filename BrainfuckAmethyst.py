@@ -9,13 +9,13 @@ class OS:
         self.terminal = Terminal()
         self.network = Network()
         self.archives = Archives()
-        self.databaseDir = '/Database/'
         self.ROMmemory = [0 for i in range(ROMsize)]
         self.RAMmemory = [0 for i in range(RAMsize)]
         self.commands = {
             '$clear': self.terminal.clearScreen,
             '$exit': self.exitOS,
-            '$setDB': self.setDatabase,
+            '$setDB': self.archives.setDatabase,
+            '$save': self.saveMemoryState,
             '$memory': self.showMemoryWrapper,
             '$load': self.loadMemory,
             '$info': self.terminal.showInfo,
@@ -36,12 +36,8 @@ class OS:
         else:
             print(f'Type a command...')
     
-    def setDatabase(self, dbDir=''):
-        if dbDir != '':
-            self.databaseDir = dbDir
-            self.terminal.showText(f'[bold green]Database directory changed!\n{self.databaseDir}[/bold green]')
-        else:
-            self.terminal.showText('[bold red]The directory entered is empty[/bold red]')
+    def saveMemoryState(self):
+        self.archives.saveMemoryState(self.RAMmemory)
     
     def loadMemory(self):
         self.RAMmemory = self.archives.getLocalMemory()
