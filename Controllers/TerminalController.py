@@ -18,9 +18,9 @@ class Terminal:
     def showStandardLogo(self) -> None:
         self.console.print(f'\n[bold magenta]- BrainfuckAmethyst v{CURRENT_VERSION} -\n[underline yellow]Design by Gabriel P.[/underline yellow][/bold magenta]\n', justify='center')
     
-    def showBootLogo(self, freeROM, freeRAM) -> None:
+    def showBootLogo(self, freeRAM) -> None:
         self.showStandardLogo()
-        print(f'[bold yellow]You have [magenta]{freeROM} bytes[/magenta] of ROM and [magenta]{freeRAM} bytes[/magenta] of RAM...[/bold yellow]\n')
+        print(f'[bold yellow]You have [magenta]{freeRAM} bytes[/magenta] of RAM...[/bold yellow]\n')
     
     def showMemory(self, memory, rowSize = 4, *args) -> None:
         y = 0

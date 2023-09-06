@@ -5,11 +5,10 @@ from rich import print
 from time import sleep 
 
 class OS:
-    def __init__(self, ROMsize = 2048, RAMsize = 32) -> None:
+    def __init__(self, RAMsize = 32) -> None:
         self.terminal = Terminal()
         self.network = Network()
         self.archives = Archives()
-        self.ROMmemory = [0 for i in range(ROMsize)]
         self.RAMmemory = [0 for i in range(RAMsize)]
         self.commands = {
             '$clear': self.terminal.clearScreen,
@@ -53,7 +52,7 @@ class OS:
     
     def runKernel(self):
         self.terminal.clearScreen()
-        self.terminal.showBootLogo(freeROM=len(self.ROMmemory), freeRAM=len(self.RAMmemory))
+        self.terminal.showBootLogo(freeRAM=len(self.RAMmemory))
         while True:
             commandUser = self.terminal.getCommand()
             self.process_command(command_line=commandUser)
