@@ -40,7 +40,7 @@ class OS:
         self.archives.saveMemoryState(self.RAMmemory)
     
     def loadMemory(self):
-        self.RAMmemory = self.archives.getLocalMemory()
+        self.RAMmemory = self.archives.loadMemoryState()
     
     def showMemoryWrapper(self, *args):
         self.terminal.showMemory(self.RAMmemory, *args)
