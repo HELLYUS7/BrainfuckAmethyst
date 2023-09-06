@@ -45,6 +45,9 @@ Your IP: "{socket.gethostbyname(currentINetworkName)}"
     def showText(self, text, align='left'):
         self.console.print(text, justify=align)
     
-    def getCommand(self) -> str:
-        command = self.console.input('[bold magenta]> [/bold magenta]')
+    def showError(self, err):
+        self.showText(f'[bold red]{err}[/bold red]')
+    
+    def getCommand(self, color='magenta', content='') -> str:
+        command = self.console.input(f'[bold {color}]{content}> [/bold {color}]')
         return command
