@@ -36,6 +36,7 @@ class Archives:
         try:
             with open(pathDir, 'w') as archive:
                 json.dump([[memoryStateName, datetime.now().strftime(f'%d/%m/%Y, %H:%M:%S')], memoryState], archive)
+                print(memoryState)
             self.terminal.showText(f'[bold green]Saved sucesfully!\n{pathDir}[/bold green]')
         except Exception as err:
             self.terminal.showError(err)

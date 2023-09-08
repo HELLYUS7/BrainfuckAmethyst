@@ -30,7 +30,7 @@ class Terminal:
                 print('')
             cellCaractere = chr(memory[index])
             cellValue = str.center(cellCaractere, 4, ' ')
-            print(f'{str.rjust(str(index),3,"0")}|{str.rjust(str(int(memoryCell)),3,"0")}|{f"[bold red]{cellValue}[/bold red]" if cellCaractere in BF_CHARACTERS else "[bold green]Null[/bold green]"}| ', end='')
+            print(f'[bold magenta]{str.rjust(str(index),3,"0")}[/bold magenta]|{str.rjust(str(int(memoryCell)),3,"0")}|{f"[bold red]{cellValue}[/bold red]" if cellCaractere in BF_CHARACTERS else "[bold green]Null[/bold green]"}| ', end='')
         print('')
     
     def showInfo(self) -> None:
