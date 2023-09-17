@@ -2,5 +2,6 @@ import socket
 
 class Network:
     def __init__(self) -> None:
-        self.ip = 0
+        self.currentNetworkName = socket.gethostname()
+        self.ip = socket.gethostbyname(self.currentNetworkName)
     

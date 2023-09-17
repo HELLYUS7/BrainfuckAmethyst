@@ -1,22 +1,23 @@
 from Controllers.ArchivesController import Archives
 from Controllers.TerminalController import Terminal
 from Controllers.NetworkController import Network
+from Controllers.MemoryController import Memory
 from rich import print
 from time import sleep 
 
 class OS:
-    def __init__(self, RAMsize = 32) -> None:
+    def __init__(self, MemorySize = 32) -> None:
         self.terminal = Terminal()
         self.network = Network()
         self.archives = Archives()
-        self.RAMmemory = [0 for i in range(RAMsize)]
+        self.memory = Memory(MemorySize)
         self.commands = {
             '$clear': self.terminal.clearScreen,
             '$exit': self.exitOS,
             '$setDB': self.archives.setDatabase,
-            '$save': self.saveMemoryState,
+            '$save': self.memory.saveMemoryState,
             '$memory': self.showMemoryWrapper,
-            '$load': self.loadMemory,
+            '$load': self.memory.loadMemory,
             '$info': self.terminal.showInfo,
             }
     
@@ -35,14 +36,8 @@ class OS:
         else:
             print(f'Type a command...')
     
-    def saveMemoryState(self):
-        self.archives.saveMemoryState(self.RAMmemory)
-    
-    def loadMemory(self):
-        self.RAMmemory = self.archives.loadMemoryState()
-    
     def showMemoryWrapper(self, *args):
-        self.terminal.showMemory(self.RAMmemory, *args)
+        self.terminal.showMemory(self.memory.memory, *args)
     
     def exitOS(self):
         return exit(0)
@@ -52,7 +47,7 @@ class OS:
     
     def runKernel(self):
         self.terminal.clearScreen()
-        self.terminal.showBootLogo(freeRAM=len(self.RAMmemory))
+        self.terminal.showBootLogo(freeMemory=len(self.memory.memory))
         while True:
             commandUser = self.terminal.getCommand()
             self.process_command(command_line=commandUser)

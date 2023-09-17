@@ -1,6 +1,7 @@
 from rich.console import Console
 from rich import print
 from time import sleep
+from Controllers.NetworkController import Network
 from Utils.Constants import BF_CHARACTERS
 from Info.CurrentVersion import CURRENT_VERSION
 import socket
@@ -8,6 +9,7 @@ import os
 
 class Terminal:
     def __init__(self) -> None:
+        self.network = Network()
         self.console = Console()
         self.width = self.console.width
         self.height = self.console.height
@@ -18,13 +20,11 @@ class Terminal:
     def showStandardLogo(self) -> None:
         self.console.print(f'\n[bold magenta]- BrainfuckAmethyst v{CURRENT_VERSION} -\n[underline yellow]Design by Gabriel P.[/underline yellow][/bold magenta]\n', justify='center')
     
-    def showBootLogo(self, freeRAM) -> None:
+    def showBootLogo(self, freeMemory) -> None:
         self.showStandardLogo()
-        print(f'[bold yellow]You have [magenta]{freeRAM} bytes[/magenta] of RAM...[/bold yellow]\n')
+        print(f'[bold yellow]You have [magenta]{freeMemory} bytes[/magenta] of RAM...[/bold yellow]\n')
     
     def showMemory(self, memory, rowSize = 4, *args) -> None:
-        y = 0
-        x = 0
         for index, memoryCell in enumerate(memory):
             if index > 0 and index % int(rowSize) == 0:
                 print('')
@@ -34,12 +34,11 @@ class Terminal:
         print('')
     
     def showInfo(self) -> None:
-        currentINetworkName = socket.gethostname()
         print(f'''
 [bold magenta]BrainfuckAmethyst v{CURRENT_VERSION}\n[underline yellow]Design by Gabriel P.[/underline yellow][/bold magenta]
 Pre alpha version\n
-Your name: "{currentINetworkName}"
-Your IP: "{socket.gethostbyname(currentINetworkName)}"
+Your name: "{self.network.currentNetworkName}"
+Your IP: "{self.network.ip}"
 ''')
     
     def showText(self, text, align='left'):
